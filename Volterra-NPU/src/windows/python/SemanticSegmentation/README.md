@@ -26,7 +26,7 @@ virtualenv <virtualenv_name>
 ### Running the Application
 - Open command prompt and type the following
 ```bash
-python .\image_segmentation_inference.py --model yolo --image_path chairs.jpg --backend cpu
+python .\main.py --model yolo --image_path chairs.jpg --backend cpu
 ```
 - This will run the image segmentation inference using **yolov8n-seg** model using **CPU** backend tested on **CHAIRS** image. 
 - If the application run successfully, we can able to see the output image with segmented maps on the objects.
@@ -35,21 +35,19 @@ python .\image_segmentation_inference.py --model yolo --image_path chairs.jpg --
     - #### image_path : input image for inference test
         - <file_path> : image file path
         - ***Example Usage*** : 
-            - python .\image_segmentation_inference.py
-            - python .\image_segmentation_inference.py --image_path <file_path>
+            - python .\main.py
+            - python .\main.py --image_path <file_path>
     - #### backend : backend selection for running inference script
         - cpu : float32 model running on cpu
         - npu : quantized model running on npu
         - cpuqdq: quantized model running on cpu
         - ***Example Usage*** : 
-            - python .\image_segmentation_inference.py --backend cpu
-            - python .\image_segmentation_inference.py --backend npu
-            - python .\image_segmentation_inference.py --backend cpuqdq
+            - python .\main.py --backend cpu
+            - python .\main.py --backend npu
+            - python .\main.py --backend cpuqdq
     - #### model : model selection for inference test
         - yolo : yolov8n-seg model
         - ffnet78 : ffnet-78s model
-        - ffnet40 : ffnet-40s model
         - ***Example Usage*** : 
-            - python .\image_segmentation_inference.py --model yolo
-            - python .\image_segmentation_inference.py --model ffnet78
-            - python .\image_segmentation_inference.py --model ffnet40
+            - python .\main.py --model yolo
+            - python .\main.py --model ffnet78
