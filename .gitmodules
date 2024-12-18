@@ -1,0 +1,3 @@
+[submodule "Volterra-NPU/ai-hub-apps"]
+	path = Volterra-NPU/ai-hub-apps
+	url = https://github.com/quic/ai-hub-apps
