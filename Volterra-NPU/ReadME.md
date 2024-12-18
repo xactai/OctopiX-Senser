@@ -69,6 +69,4 @@ To use this repository, you'll need:
 
 Each folder contains a detailed **README.md** with specific instructions.  
 
-- **Python Applications**: [src/windows/python](src/windows/python/)  
-- **C++ Applications**: [src/windows/cpp](src/windows/cpp)  
-- **Android Applications**: [src/android](src/android)  
+- **C++ Applications**: [binaries](/Volterra-NPU/binaries/cpp/)  
