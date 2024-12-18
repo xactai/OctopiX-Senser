@@ -26,7 +26,7 @@ virtualenv <virtualenv_name>
 ### Running the Application
 - Open command prompt and type the following
 ```bash
-python .\image_classification_inference.py
+python .\main.py
 ```
 - This will run the image classification inference using **YOLO** model using **CPU** backend tested on **KEYBOARD** image. 
 - If the application run successfully, we can able to see the output image with class label along with confidence value as shown below
@@ -36,19 +36,19 @@ python .\image_classification_inference.py
         - camera : for live video
         - <file_path> : image file path
         - ***Example Usage*** : 
-            - python .\image_classification_inference.py --image_path camera
-            - python .\image_classification_inference.py --image_path <file_path>
+            - python .\main.py --image_path camera
+            - python .\main.py --image_path <file_path>
     - #### backend : backend selection for running inference script
         - cpu : float32 model running on cpu
         - npu : quantized model running on npu 
         - cpuqdq: quantized model running on cpu
         - ***Example Usage*** : 
-            - python .\image_classification_inference.py --backend cpu
-            - python .\image_classification_inference.py --backend npu
-            - python .\image_classification_inference.py --backend cpuqdq
+            - python .\main.py --backend cpu
+            - python .\main.py --backend npu
+            - python .\main.py --backend cpuqdq
     - #### model : model selection for inference test
         - indeption : inception_v3 model
         - yolo : yolov8n-cls model
         - ***Example Usage*** : 
-            - python .\image_classification_inference.py --model inception
-            - python .\image_classification_inference.py --model yolo
+            - python .\main.py --model inception
+            - python .\main.py --model yolo
