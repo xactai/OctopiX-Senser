@@ -1,3 +1,6 @@
-[submodule "Volterra-NPU/ai-hub-apps"]
-	path = Volterra-NPU/ai-hub-apps
+[submodule "ai-hub-apps"]
+	path = ai-hub-apps
 	url = https://github.com/quic/ai-hub-apps
+[submodule "Parkerr"]
+	path = Parkerr
+	url = https://github.com/oxedom/parker
