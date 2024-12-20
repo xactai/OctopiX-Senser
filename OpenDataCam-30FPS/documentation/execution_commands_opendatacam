@@ -1,0 +1,54 @@
+
+
+#========================Container-Toolkit installation ==================================================
+
+#Follow the below url to install the Nvidia Container-toolkit
+
+https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html
+
+
+#======================== Run-time error ==================================================
+
+If you face the issue (nvidia run-time) while running the opendatacam container.You need to add the "daemon.json" file in this path "/etc/docker"
+
+
+{
+    "runtimes": {
+        "nvidia": {
+            "path": "/usr/bin/nvidia-container-runtime",
+            "runtimeArgs": []
+        }
+    }
+
+}
+
+
+Note: After adding this file need to restart the Docker service
+
+systemctl restart docker.service
+ 
+#========================== Docker Build and run commands ===================================
+
+
+untar the opendatacam_Dockerfile.tar file then follow the below commands
+
+cd opendatacam_Dockerfile
+
+docker build -t <preferred name to your docker image> .   ## In my case preferred name is "opendatacam:mongov1"
+
+docker run --network host --device=/dev/dri:/dev/dri --device=/dev:/dev -e SDL_VIDEODRIVER=x11 -e DISPLAY=$DISPLAY -e XAUTHORITY=$XAUTHORITY -v /tmp/.X11-unix:/tmp/.X11-unix -v $XAUTHORITY:$XAUTHORITY -dit --gpus all --privileged --name opendatacam_container opendatacam:mongov1
+
+
+
+#========================= Check the opendatacam in Browser ==================================
+
+http://localhost:8080       # For app
+http://localhost:8090       # For mjpeg_stream
+http://localhost:8070       # For json_stream
+
+
+#======================= Change opendatacam config.json file =================================
+
+Enter into the Docker container and change the file 
+
+docker exec -it opendatacam_container /bin/bash 
