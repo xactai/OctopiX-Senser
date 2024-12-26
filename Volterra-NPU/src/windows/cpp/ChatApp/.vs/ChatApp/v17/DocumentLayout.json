@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Projects\\Github_repo\\OctopiX-Senser\\Volterra-NPU\\src\\windows\\cpp\\ChatApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6AECF6D0-1B11-483D-A9ED-44026305F3BE}|ChatApp.vcxproj|D:\\Projects\\Github_repo\\OctopiX-Senser\\Volterra-NPU\\src\\windows\\cpp\\ChatApp\\ChatApp.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6AECF6D0-1B11-483D-A9ED-44026305F3BE}|ChatApp.vcxproj|solutionrelative:ChatApp.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6AECF6D0-1B11-483D-A9ED-44026305F3BE}|ChatApp.vcxproj|D:\\Projects\\Github_repo\\OctopiX-Senser\\Volterra-NPU\\src\\windows\\cpp\\ChatApp\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6AECF6D0-1B11-483D-A9ED-44026305F3BE}|ChatApp.vcxproj|solutionrelative:Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ChatApp.hpp",
+              "DocumentMoniker": "D:\\Projects\\Github_repo\\OctopiX-Senser\\Volterra-NPU\\src\\windows\\cpp\\ChatApp\\ChatApp.hpp",
+              "RelativeDocumentMoniker": "ChatApp.hpp",
+              "ToolTip": "D:\\Projects\\Github_repo\\OctopiX-Senser\\Volterra-NPU\\src\\windows\\cpp\\ChatApp\\ChatApp.hpp",
+              "RelativeToolTip": "ChatApp.hpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-12-26T13:01:35.792Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Main.cpp",
+              "DocumentMoniker": "D:\\Projects\\Github_repo\\OctopiX-Senser\\Volterra-NPU\\src\\windows\\cpp\\ChatApp\\Main.cpp",
+              "RelativeDocumentMoniker": "Main.cpp",
+              "ToolTip": "D:\\Projects\\Github_repo\\OctopiX-Senser\\Volterra-NPU\\src\\windows\\cpp\\ChatApp\\Main.cpp",
+              "RelativeToolTip": "Main.cpp",
+              "ViewState": "AgIAADMAAAAAOzMzMzMbwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-12-26T13:01:20.399Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
