@@ -93,7 +93,7 @@ if args.model == 'yolo':
         buffer_size = 2*1024*1024
         try:
             print("Loading RTSP")
-            subprocess.Popen([r"C:\venvs\python3.11.9.amd64\Scripts\python.exe", r"C:\volterra_research\refactored_code\rtsp\client.py"])
+            subprocess.Popen([r"C:\venvs\python3.11.9.amd64\Scripts\python.exe", os.path.join(os.path.dirname(os.path.dirname(__file__)), "_rtsp_", "client.py")])
             server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             server.bind(("localhost", 8080))
             server.listen(1)
