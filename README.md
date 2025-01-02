@@ -11,5 +11,5 @@
 <h2 align="center"> Detailed description for running the AI applications is at the following link: </h2>
 
 <div align="center">
-    <a style="color: #555; font-size: 24px" href="github.com/xactai/OctopiX-Senser/tree/feature/python_app_windows_npu/Volterra-NPU">AI Applications on Qualcomm Snapdragon 8cx Gen 3 CPU-NPU-GPU</a>
+    <a style="color: #555; font-size: 24px" href="https://github.com/xactai/OctopiX-Senser/tree/feature/python_app_windows_npu/Volterra-NPU">AI Applications on Qualcomm Snapdragon 8cx Gen 3 CPU-NPU-GPU</a>
 </div>
