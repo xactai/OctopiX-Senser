@@ -145,7 +145,7 @@ npm run start
 
 [click here for Docker file](documentation/opendatacam_Dockerfile.tar)
 
-## Modificartions for Configuring FPS through Application
+## Modifications for Configuring FPS through Application
 - This guide outlines the steps required to modify Darknet to control the frame rate (FPS) for video input and integrate it with OpenDataCam using the YOLOv4 and YOLOv4-tiny model. By following these steps, you can set the FPS to any desired value (e.g., 30 FPS) and run Darknet accordingly.
 - ### Darknet Code Modifications
 
@@ -153,12 +153,12 @@ npm run start
 - Modify imports to include **unistandard headers**
 
 ![imports](./documentation/images/Demo%20header.png)
-- Modify the demo (0) Function (Line 145): Update the function definition of demo() at line 145 to accept a  double test_fps parameter, which will allow controlling the FPS.
+- Modify the demo (0) Function (Line 145): Update the function definition of demo() at line 145 to accept a  double desired_fps parameter, which will allow controlling the FPS.
 
-![add_variable](./documentation/images/Demo_function.png)
+![add_variable](./documentation/images/Demo.c_Function_desired_fps.png)
 - Calculate Target Frame Time: Before the while loop at line 271, calculate the target frame time based on the FPS.
 
-![Target_Frame_Time](./documentation/images/Calculate_Target_Frame_Time.png)
+![Target_Frame_Time](./documentation/images/Calculate_target_frame_time.png)
 - Capture Time: After the while loop at line 274, add capture_time
 
 ![Capture Time](./documentation/images/Capture_Time.png)
@@ -168,16 +168,14 @@ npm run start
 - Change the condition on line 413 to display the average FPS every second instead of a 3-second delay
 
 ![Avergae FPS](./documentation/images/Display_avg-fps.png)
-
 - **Changes to demo.h**
-- In demo.h, modify the function declaration to include the  double test_fps parameter at line 8
+- In demo.h, modify the function declaration to include the  double desired_fps parameter at line 8
 
-![Function Declaration](./documentation/images/Demo.h_.png)
-
+![Function Declaration](./documentation/images/Demo.h_parameter.png)
 - **Changes to detector.c**
 - Retrieve FPS Argument: Add the following code at lines 2021 and 2022 to retrieve the -fps argument from the command line
 
-![Retrieve FPS Argument](./documentation/images/FPS-Argument_detector.c.png)
+![Retrieve FPS Argument](./documentation/images/Detector.c_fps_argument.png)
 - Pass fps_value to demo(): Modify the call to demo() to pass the fps_value at lines 2041 and 2042
 
 ![Pass FPS Value](./documentation/images/Pass_fps_value_parameter_det.c.png)
@@ -185,7 +183,7 @@ npm run start
 - **Changes to coco.c**
 - Retrieve -fps Argument: Add the following code at lines 411 and 412 for coco.c to retrieve the -fps argument
 
-![Retrieve FPS Argument coco](./documentation/images/Fps_Argument_coco.c.png)
+![Retrieve FPS Argument coco](./documentation/images/Coco.c_fps_argument.png)
 
 - Pass fps_value to demo(): Modify the call to demo() to pass the fps_value at lines 417 and 418 in coco.c
 
@@ -194,7 +192,7 @@ npm run start
 - **Changes to yolo.c**
 - Retrieve -fps Argument: Add the following code at lines 365 and 366 for yolo.c to retrieve the -fps argument
 
-![Retrieve FPS Argument yolo](./documentation/images/Fps_Argument_yolo.c.png)
+![Retrieve FPS Argument yolo](./documentation/images/Yolo.c_fps_argument.png)
 
 - Pass fps_value to demo(): Modify the call to demo() to pass the fps_value at lines 371 and 372 in yolo.c
    
@@ -234,11 +232,11 @@ If the changes are successful we can see the output
 
 - Declare new variable called ***fps*** and convert to float
 
-![yolo_js_fps](./documentation/images/yolo.js.png)
+![yolo_js_fps](./documentation/images/Yolo.js.png)
 
 - Modify the darknet command and add ***fps*** so that darknet can run with desired fps set in [config](./config.json) file.
 
-![yolo_js_fps_command](./documentation/images/yolo.js_fps.png)
+![yolo_js_fps_command](./documentation/images/Yolo.js_fps.png)
 
 - **Changes to config.js**
 
