@@ -27,60 +27,14 @@ video_extn = ["mkv", "mp4", "avi"]
 image_extn = ["png", "jpg", "jpeg"]
 
 
-if args.model == 'real_esrgan_x4plus':
-    if backend == "cpu":
-        model_path = os.path.join(ROOT_PATH, 'assets', 'models', f'{args.model}.{MODEL_EXTENSION}')
-    elif backend == 'npu':
-        model_path = os.path.join(ROOT_PATH, 'assets', 'models', f'{args.model}.qdq.{MODEL_EXTENSION}')
-    elif backend == "cpuqdq":
-        print("Inferencing Quantized model on CPU")
-        model_path = os.path.join(ROOT_PATH, 'assets', 'models', f'{args.model}.qdq.{MODEL_EXTENSION}')
-        backend = "cpu"
-if args.model == 'xlsr':
-    if backend == "cpu":
-        model_path = os.path.join(ROOT_PATH, 'assets', 'models', f'{args.model}.{MODEL_EXTENSION}')
-    elif backend == 'npu':
-        model_path = os.path.join(ROOT_PATH, 'assets', 'models', f'{args.model}.qdq.{MODEL_EXTENSION}')
-    elif backend == "cpuqdq":
-        print("Inferencing Quantized model on CPU")
-        model_path = os.path.join(ROOT_PATH, 'assets', 'models', f'{args.model}.qdq.{MODEL_EXTENSION}')
-        backend = "cpu"
-if args.model == 'xlsr-hf':
-    if backend == "cpu":
-        model_path = os.path.join(ROOT_PATH, 'assets', 'models', f'{args.model}.{MODEL_EXTENSION}')
-    elif backend == 'npu':
-        model_path = os.path.join(ROOT_PATH, 'assets', 'models', f'{args.model}.qdq.{MODEL_EXTENSION}')
-    elif backend == "cpuqdq":
-        print("Inferencing Quantized model on CPU")
-        model_path = os.path.join(ROOT_PATH, 'assets', 'models', f'{args.model}.qdq.{MODEL_EXTENSION}')
-        backend = "cpu"
-if args.model == 'xlsr-hf-prev':
-    if backend == "cpu":
-        model_path = os.path.join(ROOT_PATH, 'assets', 'models', f'{args.model}.{MODEL_EXTENSION}')
-    elif backend == 'npu':
-        model_path = os.path.join(ROOT_PATH, 'assets', 'models', f'{args.model}.qdq.{MODEL_EXTENSION}')
-    elif backend == "cpuqdq":
-        print("Inferencing Quantized model on CPU")
-        model_path = os.path.join(ROOT_PATH, 'assets', 'models', f'{args.model}.qdq.{MODEL_EXTENSION}')
-        backend = "cpu"
-if args.model == 'xlsr-tf-onnx':
-    if backend == "cpu":
-        model_path = os.path.join(ROOT_PATH, 'assets', 'models', f'{args.model}.{MODEL_EXTENSION}')
-    elif backend == 'npu':
-        model_path = os.path.join(ROOT_PATH, 'assets', 'models', f'{args.model}.qdq.{MODEL_EXTENSION}')
-    elif backend == "cpuqdq":
-        print("Inferencing Quantized model on CPU")
-        model_path = os.path.join(ROOT_PATH, 'assets', 'models', f'{args.model}.qdq.{MODEL_EXTENSION}')
-        backend = "cpu"
-if args.model == 'quicksrnetsmall':
-    if backend == "cpu":
-        model_path = os.path.join(ROOT_PATH, 'assets', 'models', f'{args.model}.{MODEL_EXTENSION}')
-    elif backend == 'npu':
-        model_path = os.path.join(ROOT_PATH, 'assets', 'models', f'{args.model}.qdq.{MODEL_EXTENSION}')
-    elif backend == "cpuqdq":
-        print("Inferencing Quantized model on CPU")
-        model_path = os.path.join(ROOT_PATH, 'assets', 'models', f'{args.model}.qdq.{MODEL_EXTENSION}')
-        backend = "cpu"
+if backend == "cpu":
+    model_path = os.path.join(ROOT_PATH, 'assets', 'models', f'{args.model}.{MODEL_EXTENSION}')
+elif backend == 'npu':
+    model_path = os.path.join(ROOT_PATH, 'assets', 'models', f'{args.model}.qdq.{MODEL_EXTENSION}')
+elif backend == "cpuqdq":
+    print("Inferencing Quantized model on CPU")
+    model_path = os.path.join(ROOT_PATH, 'assets', 'models', f'{args.model}.qdq.{MODEL_EXTENSION}')
+    backend = "cpu"
 
 filename = args.image_path.split('.')[0]
 

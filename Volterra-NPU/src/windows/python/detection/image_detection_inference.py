@@ -24,36 +24,16 @@ args = parser.parse_args()
 backend = args.backend
 
 
-if args.model == 'yolov8':
-    if backend == "cpu":
-        model_path = os.path.join(ROOT_PATH, 'assets', 'models', f'{args.model}n.{MODEL_EXTENSION}')
-    elif backend == 'npu':
-        model_path = os.path.join(ROOT_PATH, 'assets', 'models', f'{args.model}n.qdq.{MODEL_EXTENSION}')
-    elif backend == "cpuqdq":
-        print("Inferencing Quantized model on CPU")
-        model_path = os.path.join(ROOT_PATH, 'assets', 'models', f'{args.model}n.qdq.{MODEL_EXTENSION}')
-        backend = "cpu"
-    yolov8_detector = YOLOv8(model_path, conf_thres=0.2, iou_thres=0.3, backend=backend)
-if args.model == "yolov11":
-    if backend == "cpu":
-        model_path = os.path.join(ROOT_PATH, 'assets', 'models', f'{args.model}n.{MODEL_EXTENSION}')
-    elif backend == 'npu':
-        model_path = os.path.join(ROOT_PATH, 'assets', 'models', f'{args.model}n.qdq.{MODEL_EXTENSION}')
-    elif backend == "cpuqdq":
-        print("Inferencing Quantized model on CPU")
-        model_path = os.path.join(ROOT_PATH, 'assets', 'models', f'{args.model}n.qdq.{MODEL_EXTENSION}')
-        backend = "cpu"
-    yolov8_detector = YOLOv8(model_path, conf_thres=0.2, iou_thres=0.3, backend=backend)
-if args.model == "yolo11s":
-    if backend == "cpu":
-        model_path = os.path.join(ROOT_PATH, 'assets', 'models', f'{args.model}.{MODEL_EXTENSION}')
-    elif backend == 'npu':
-        model_path = os.path.join(ROOT_PATH, 'assets', 'models', f'{args.model}.qdq.{MODEL_EXTENSION}')
-    elif backend == "cpuqdq":
-        print("Inferencing Quantized model on CPU")
-        model_path = os.path.join(ROOT_PATH, 'assets', 'models', f'{args.model}.qdq.{MODEL_EXTENSION}')
-        backend = "cpu"
-    yolov8_detector = YOLOv8(model_path, conf_thres=0.04, iou_thres=0.3, backend=backend)
+if backend == "cpu":
+    model_path = os.path.join(ROOT_PATH, 'assets', 'models', f'{args.model}n.{MODEL_EXTENSION}' if args.model in ['yolov8', 'yolov11'] else f'{args.model}.{MODEL_EXTENSION}')
+elif backend == 'npu':
+    model_path = os.path.join(ROOT_PATH, 'assets', 'models', f'{args.model}n.qdq.{MODEL_EXTENSION}' if args.model in ['yolov8', 'yolov11'] else f'{args.model}.qdq.{MODEL_EXTENSION}')
+elif backend == "cpuqdq":
+    print("Inferencing Quantized model on CPU")
+    model_path = os.path.join(ROOT_PATH, 'assets', 'models', f'{args.model}n.qdq.{MODEL_EXTENSION}' if args.model in ['yolov8', 'yolov11'] else f'{args.model}.qdq.{MODEL_EXTENSION}')
+    backend = "cpu"
+
+yolov8_detector = YOLOv8(model_path, conf_thres=0.04, iou_thres=0.3, backend=backend)
 
 
 if args.image_path != 'camera':
