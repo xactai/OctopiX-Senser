@@ -15,7 +15,7 @@ Object Detection application for Windows on Snapdragon® with ONNX runtime using
   - Make sure **Desktop development with C++ tools** are selected during installation or installed separately later
   - Download any variant of [Visual Studio here](https://visualstudio.microsoft.com/vs/)
   - Make libraries from accessible to app target binary
-    - copy libraries from `onnxlibs` in same directory as executable
+    - copy libraries from [ONNX-LIBS](https://github.com/xactai/OctopiX-Senser/releases/download/binaries-v1.0/ONNX-LIBS.7z) in same directory as executable
 
 ## Build App
 
