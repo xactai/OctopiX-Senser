@@ -50,8 +50,7 @@ cv2.namedWindow(output_window, cv2.WINDOW_NORMAL)
 if args.image_path.endswith(tuple(image_extn)):
     image_path = os.path.join(ROOT_PATH, 'assets', 'images', f'{args.image_path}')
     image = cv2.imread(image_path)
-    for _ in range(100):
-        class_name, confidence_value = cfcn.process_image(image)
+    class_name, confidence_value = cfcn.process_image(image)
     output_image = utils.display_result(image, class_name, confidence_value)
     print(class_name, confidence_value)
     cv2.imshow(output_window, output_image)
@@ -66,7 +65,7 @@ elif args.image_path.endswith(tuple(video_extn)):
         output_image = utils.display_result(frame, class_name, confidence_value)
         cv2.imshow(output_window, output_image)
         key = cv2.waitKey(1)
-        if key==0x27 or key==ord('q'):
+        if key==27 or key==ord('q'):
             exit(0)
 
 elif args.image_path == 'rtsp':
@@ -97,7 +96,7 @@ elif args.image_path == 'rtsp':
                 cv2.imshow(output_window, output_image)
                 key = cv2.waitKey(1)
                 data = b""
-                if key==0x27 or key==ord('q'):
+                if key==27 or key==ord('q'):
                     conn.close()
                     exit(0)
 
@@ -116,7 +115,7 @@ while True:
             output_image = utils.display_result(image, class_name, confidence_value)
             cv2.imshow(output_window, output_image)
             key = cv2.waitKey(1)
-            if key==0x27 or key==ord('q'):
+            if key==27 or key==ord('q'):
                 break
     except Exception as e:
         print(f"Error occured: {e}")
