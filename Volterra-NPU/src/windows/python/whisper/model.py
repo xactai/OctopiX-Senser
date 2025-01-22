@@ -2,6 +2,8 @@
 # Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
 # SPDX-License-Identifier: BSD-3-Clause
 # ---------------------------------------------------------------------
+import warnings
+warnings.filterwarnings("ignore")
 import numpy as np
 import onnxruntime
 from qai_hub_models.models._shared.whisper.model import Whisper
@@ -17,10 +19,10 @@ def get_onnxruntime_session_with_qnn_ep(path):
         provider_options=[
             {
                 "backend_path": "QnnHtp.dll",
-                # "htp_performance_mode": "burst",
-                # "high_power_saver": "sustained_high_performance",
-                # "enable_htp_fp16_precision": "1",
-                # "htp_graph_finalization_optimization_mode": "3",
+                "htp_performance_mode": "burst",
+                "high_power_saver": "sustained_high_performance",
+                "enable_htp_fp16_precision": "1",
+                "htp_graph_finalization_optimization_mode": "3"
             }
         ],
     )
