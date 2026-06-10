@@ -21,6 +21,7 @@
     "joi": "^17.4.0",
     "jsonwebtoken": "^9.0.0",
     "mailgen": "^2.0.27",
+    "mongodb-memory-server": "^11.2.0",
     "mongoose": "^5.13.2",
     "nodemailer": "^6.9.3",
     "rate-limiter": "^0.2.0",

@@ -10,7 +10,7 @@ import axios from 'axios'
 import { io } from 'socket.io';
 const Profile = () => {
 
-  const url = "https://foursnakeandladderapi.onrender.com/api/login"
+  const url = "http://localhost:3001/api/login"
   const help = async (e) => {
     e.preventDefault();
     await axios({

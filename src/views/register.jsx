@@ -15,7 +15,7 @@ const Register = () => {
       toast("All fields are necessary")
       return;
     }
-    const reply = await axios.post("https://foursnakeandladderapi.onrender.com/api/v1/login", {
+    await axios.post("http://localhost:3001/api/v1/login", {
       email: rm3,
       password: rpassword3
     }).then((res) => {
@@ -53,30 +53,44 @@ const Register = () => {
       toast("All fields are necessary")
       return;
     }
-    if (rpassword != rpassword2) {
+    if (rpassword !== rpassword2) {
       toast("Password do not match");
       return;
     }
-    await axios.post("https://foursnakeandladderapi.onrender.com/api/v1/verify/report", {
+    await axios.post("http://localhost:3001/api/v1/verify/report", {
       email: rm,
       name: rname,
       password: rpassword
     })
       .then((res) => {
-        if (res.data.msg && res.data.msg === "Already Registered") {
-          toast("ALREADY REGISTERED")
+        // Handle error responses returned with a 2xx status code
+        if (res.data.ERROR) {
+          toast(res.data.ERROR);
           return;
         }
-        else {
-          toast(`Verify Your Mail....${res.data.datas}`)
+        if (res.data.msg === "Already Registered") {
+          toast("ALREADY REGISTERED");
+          return;
+        }
+        if (res.data.datas) {
+          toast(`Verify Your Mail: ${res.data.datas}`);
+        } else {
+          toast("Registration successful! Please check your email to verify.");
         }
       })
       .catch((err) => {
-        if (err.response.data.msg === true) {
-          toast("ALREADY REGISTERED")
-          return;
+        // Guard against err.response being undefined (e.g. network timeout)
+        if (err.response && err.response.data) {
+          if (err.response.data.msg === true || err.response.data.msg === "Already Registered") {
+            toast("ALREADY REGISTERED");
+            return;
+          }
+          if (err.response.data.ERROR) {
+            toast(err.response.data.ERROR);
+            return;
+          }
         }
-        toast(`An Error Occurred, Please Try Again Later`)
+        toast(`An Error Occurred, Please Try Again Later`);
       })
   };
 

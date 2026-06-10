@@ -52,10 +52,23 @@ app.use(errorHandlerMiddleware);
 
 const port = process.env.PORT || 3001;
 
+const { MongoMemoryServer } = require('mongodb-memory-server');
+
 const start = async () => {
   try {
-    await connectDB(process.env.MONGO_URI);
-    await connectDBMain(process.env.MONGO_URI2);
+    let mongoUri = process.env.MONGO_URI;
+    let mongoUri2 = process.env.MONGO_URI2;
+    
+    if (!mongoUri || !mongoUri2) {
+      console.log('No MONGO_URI provided. Starting in-memory MongoDB server...');
+      const mongod = await MongoMemoryServer.create();
+      const uri = mongod.getUri();
+      mongoUri = mongoUri || uri;
+      mongoUri2 = mongoUri2 || uri;
+    }
+
+    await connectDB(mongoUri);
+    await connectDBMain(mongoUri2);
     app.listen(port, () =>
       console.log(`Server is listening on port ${port}...`)
     );

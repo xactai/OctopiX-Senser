@@ -24,6 +24,7 @@ const report = async (req, res) => {
                     username: name,
                     email: email,
                     password: password,
+                    verify: true,
                 })
                 const token = Users.createJWT()
                 Users.token = token
@@ -39,6 +40,7 @@ const report = async (req, res) => {
                     username: name,
                     email: email,
                     password: password,
+                    verify: true,
                 })
                 const token = Users.createJWT()
                 Users.token = token
@@ -64,41 +66,7 @@ const report = async (req, res) => {
             console.log(error)
             return res.json({msg:"ERROR: Please TRY AGAIN LATER"});
         }
-        let config = {
-            service: "gmail",
-            auth: {
-                user: process.env.MAIL,
-                pass: process.env.PASS
-            }
-        }
-        let transporter = nodemailer.createTransport(config)
-        let Mailgen2 = new Mailgen({
-            theme: "default",
-            product: {
-                name: "Email Verification",
-                link: "https://github.com/Prashant0664"
-            }
-        })
-        let response = {
-            body: {
-                intro: `Click here to verify your mail <br/> <a href="https://foursnakeandladderapi.onrender.com/api/v1/verify/report/${str}/${email}">https://foursnakeandladderapi.onrender.com/api/v1/verify/report/${str}</a> `,
-                outro: "Thank You for Using Our Services"
-            }
-        }
-        let msil = Mailgen2.generate(response)
-        let message = {
-            from: process.env.MAIL,
-            to: email,
-            subject: "Email verification 4snake and ladders",
-            html: msil,
-        }
-        transporter.sendMail(message).then(() => {
-            return res.status(201).json({ datas: "MAIL SENT SUCCESSFULLY" })
-        }).catch((err) => {
-            return res.status(201).json({ "ERROR": "SOMETHING WENT WRONG! PLEASE RECHECK YOUR CREDENTIALS" })
-        })
-
-
+        return res.status(201).json({ datas: "Successfully Registered! (Email verification bypassed)" });
 
     } catch (error) {
         console.log(error);
