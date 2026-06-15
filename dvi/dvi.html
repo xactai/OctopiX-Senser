@@ -1,0 +1,112 @@
+<h1 id="brickgame-v2.0">BrickGame v2.0</h1>
+<p>BrickGame v2.0 - это набор классических игр, включающий в себя игру в змейку и тетрис. Программа должна быть разработана на языке C++ стандарта C++17.</p>
+<h2 id="требования">Требования</h2>
+<ul>
+<li>Операционная система: Linux или macOS</li>
+<li>C++17 compiler</li>
+<li>ncurses library (для терминального интерфейса змейки)</li>
+<li>GUI-библиотека с API для C++17 (Qt) (для графического интерфейса тетриса)</li>
+<li>check library (для unit-тестов)</li>
+</ul>
+<h2 id="структура-проекта">Структура проекта</h2>
+<ul>
+<li><code>src/brick_game/snake</code> - код библиотеки с логикой игры змейка</li>
+<li><code>src/brick_game/tetris</code> - код библиотеки с логикой игры тетрис</li>
+<li><code>src/gui/cli</code> - код терминального интерфейса змейки</li>
+<li><code>src/gui/desktop</code> - код графического интерфейса тетриса</li>
+<li><code>tests</code> - unit-тесты для библиотек</li>
+<li><code>Makefile</code> - файл для сборки проекта</li>
+</ul>
+<h2 id="установка">Установка</h2>
+<ol type="1">
+<li>Склонируйте репозиторий:</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="fu">git</span> clone https://github.com/your_username/brick_game.git</span></code></pre></div>
+<ol start="2" type="1">
+<li>Перейдите в директорию проекта:</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="bu">cd</span> brick_game</span></code></pre></div>
+<ol start="3" type="1">
+<li>Соберите проект:</li>
+</ol>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="fu">make</span> all</span></code></pre></div>
+<ol start="4" type="1">
+<li>Установите проект:</li>
+</ol>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="fu">make</span> install</span></code></pre></div>
+<h2 id="использование">Использование</h2>
+<h3 id="змейка">Змейка</h3>
+<p>Запустите игру:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="fu">make</span> run_cli</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a><span class="fu">make</span> run_desktop</span></code></pre></div>
+<h4 id="игровой-процесс">Игровой процесс</h4>
+<ul>
+<li>Змейка передвигается по полю самостоятельно, на один блок вперед по истечении игрового таймера.</li>
+<li>Когда змейка сталкивается с «яблоком», ее длина увеличивается на один.</li>
+<li>Когда длина змейки достигает 200 единиц, игра заканчивается победой.</li>
+<li>Когда змейка сталкивается с границей поля или сама с собой, игра заканчивается поражением.</li>
+<li>Пользователь может менять направление движение змейки с помощью стрелок, при этом змейка может поворачивать только налево и направо относительно текущего направления движения.</li>
+<li>Пользователь может ускорять движение змейки зажатием стрелки по направлению движения змейки.</li>
+</ul>
+<h4 id="управление">Управление</h4>
+<ul>
+<li>Пробел - Начало игры</li>
+<li>Пробел / Tab - Поставить игру на паузу / продолжить игру</li>
+<li>Esc - Завершение игры</li>
+<li>Стрелка влево — движение змейки влево</li>
+<li>Стрелка вправо — движение змейки вправо</li>
+<li>Стрелка вниз — движение змейки вниз</li>
+<li>Стрелка вверх — движение змейки вверх</li>
+</ul>
+<h3 id="тетрис">Тетрис</h3>
+<h4 id="управление-1">Управление</h4>
+<ul>
+<li>Пробел - Начало игры</li>
+<li>Tab - Поставить игру на паузу / продолжить игру</li>
+<li>Esc - Завершение игры</li>
+<li>Стрелка влево — движение тетромино влево</li>
+<li>Стрелка вправо — движение тетромино вправо</li>
+<li>Стрелка вниз — ускорение движения тетромино вниз</li>
+<li>Стрелка вверх — вращение тетромино</li>
+<li>Пробел - падение тетромино</li>
+</ul>
+<h2 id="дополнительные-механики">Дополнительные механики</h2>
+<h3 id="подсчет-очков-и-рекорд">Подсчет очков и рекорд</h3>
+<ul>
+<li>Подсчет очков</li>
+<li>Хранение максимального количества очков в файле</li>
+<li>Начисление очков:
+<ul>
+<li>Змейка: при поедании очередного «яблока» добавляется одно очко</li>
+<li>Тетрис:
+<ul>
+<li>1 линия — 100 очков</li>
+<li>2 линии — 300 очков</li>
+<li>3 линии — 700 очков</li>
+<li>4 линии — 1500 очков</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="механика-уровней">Механика уровней</h3>
+<ul>
+<li>Механика уровней</li>
+<li>Каждый раз, когда игрок набирает определенное количество очков, уровень увеличивается на 1
+<ul>
+<li>Змейка: каждые 5 очков</li>
+<li>Тетрис: каждые 600 очков</li>
+</ul></li>
+<li>Повышение уровня увеличивает скорость движения змейки или фигур</li>
+<li>Максимальное количество уровней — 10</li>
+</ul>
+<h2 id="тестирование">Тестирование</h2>
+<p>Библиотеки, реализующие логику игр, покрыты unit-тестами с использованием библиотеки check. Покрытие библиотек тестами составляет не меньше 80 процентов.</p>
+<p>Запустите тесты:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="fu">make</span> test</span></code></pre></div>
+<h2 id="диаграмма-конечного-автомата">Диаграмма конечного автомата</h2>
+<figure>
+<img src="img/fsm.png" alt="" /><figcaption>fsm</figcaption>
+</figure>
+<h2 id="автор">Автор</h2>
+<ul>
+<li><a href="https://github.com/amirshig">Amir Shigapov</a></li>
+</ul>
