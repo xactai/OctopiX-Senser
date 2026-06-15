@@ -142,3 +142,5 @@ Add level mechanics to the game. Each time a player gains 5 points, the level in
 ## Finite State Machine (FSM) Diagram Snake
 
 ![My diagram](dvi/media/fsm_snake.png)
+
+Thank you.
