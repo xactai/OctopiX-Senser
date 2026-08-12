@@ -48,7 +48,7 @@ const report = async (req, res) => {
                 }
             }
         } catch (error) {
-            res.status(401).json({ msg: error })
+            return res.status(401).json({ msg: error.message || error });
         }
         try {
             var Users2 = await User.findOne({ mail: email })
@@ -56,11 +56,10 @@ const report = async (req, res) => {
                 Users2 = await User.create({ mail: email, token: str })
             }
             else{
-                mail = email;
-                token = str;
-                isVerify = false;
-                Users2.save();
-                
+                Users2.mail = email;
+                Users2.token = str;
+                Users2.isVerify = false;
+                await Users2.save();
             }
         } catch (error) {
             console.log(error)
