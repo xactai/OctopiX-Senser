@@ -1,0 +1,8 @@
+/home/xactai/Documents/ashrita/build/CMakeFiles/consoleBrickGame.dir
+/home/xactai/Documents/ashrita/build/CMakeFiles/desktopBrickGame.dir
+/home/xactai/Documents/ashrita/build/CMakeFiles/edit_cache.dir
+/home/xactai/Documents/ashrita/build/CMakeFiles/rebuild_cache.dir
+/home/xactai/Documents/ashrita/build/CMakeFiles/consoleBrickGame_autogen_timestamp_deps.dir
+/home/xactai/Documents/ashrita/build/CMakeFiles/consoleBrickGame_autogen.dir
+/home/xactai/Documents/ashrita/build/CMakeFiles/desktopBrickGame_autogen_timestamp_deps.dir
+/home/xactai/Documents/ashrita/build/CMakeFiles/desktopBrickGame_autogen.dir

@@ -1,0 +1,5 @@
+# Hashes of file build rules.
+d0b817d63dd88b8f3ecce60e1ee68ac7 CMakeFiles/consoleBrickGame_autogen
+d0b817d63dd88b8f3ecce60e1ee68ac7 CMakeFiles/desktopBrickGame_autogen
+1c704a9d015c893db9819f32c7011095 consoleBrickGame_autogen/timestamp
+53a1ce71e50013ef5a4442a3756b5462 desktopBrickGame_autogen/timestamp
